@@ -1,0 +1,15 @@
+services:
+  pg:
+    image: postgres:18.3-alpine3.23
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: orders
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
